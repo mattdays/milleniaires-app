@@ -1,4 +1,4 @@
-# milleniaires-app
+# millenniaires-app
 A native mobile app that lets you learn and invest with your friends
 
 To run this app in Ionic's browser simulator:
