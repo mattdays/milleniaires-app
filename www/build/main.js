@@ -34,7 +34,7 @@ var AddGroupPage = /** @class */ (function () {
     };
     AddGroupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-group',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/add-group/add-group.html"*/'<!--\n  Generated template for the AddGroupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Add Group</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form>\n    <ion-list>\n      <ion-item>\n        <ion-label>Title</ion-label>\n        <ion-input type="text"> </ion-input>\n      </ion-item>\n      <ion-item>\n          <ion-label>Connections:</ion-label>\n          <ion-input type="text"></ion-input>\n      </ion-item>\n      <button ion-button full class="login-submit">Create Group</button>\n  </ion-list>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/add-group/add-group.html"*/,
+            selector: 'page-add-group',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/add-group/add-group.html"*/'<!--\n  Generated template for the AddGroupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Add Group</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form>\n    <ion-list>\n      <ion-item>\n        <ion-label>Title</ion-label>\n        <ion-input type="text"> </ion-input>\n      </ion-item>\n      <ion-item>\n          <ion-label>Connections:</ion-label>\n          <ion-input type="text"></ion-input>\n      </ion-item>\n      <button ion-button full class="login-submit">Create Group</button>\n  </ion-list>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/add-group/add-group.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], AddGroupPage);
@@ -49,9 +49,11 @@ var AddGroupPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConnectionsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_groups__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__connections_connections__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,27 +65,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * Generated class for the ConnectionsPage page.
+ * Generated class for the DashboardPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ConnectionsPage = /** @class */ (function () {
-    function ConnectionsPage(navCtrl, navParams) {
+var DashboardPage = /** @class */ (function () {
+    function DashboardPage(navCtrl, navParams, menuCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.menuCtrl = menuCtrl;
+        this.groupsPage = __WEBPACK_IMPORTED_MODULE_2__groups_groups__["a" /* GroupsPage */];
+        this.connectionsPage = __WEBPACK_IMPORTED_MODULE_3__connections_connections__["a" /* ConnectionsPage */];
     }
-    ConnectionsPage = __decorate([
+    DashboardPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DashboardPage');
+    };
+    DashboardPage.prototype.loadPage = function (page) {
+        this.navCtrl.push(page);
+        this.menuCtrl.close();
+    };
+    DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-connections',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/connections/connections.html"*/'<!--\n  Generated template for the ConnectionsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="add"></ion-icon>\n      </button>\n  \n    </ion-buttons>\n    <ion-title>Connections</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card>\n\n        <ion-item>\n          <ion-avatar item-start>\n            <img src="../assets/imgs/business1.jpeg"/>\n          </ion-avatar>\n          <h2>Marty McFly</h2>\n          <p>November 5, 1955</p>\n        </ion-item>\n      \n        <ion-card-content>\n          <p>Student at Davidson College</p>\n        </ion-card-content>\n      \n        <ion-row>\n          <ion-col>\n            <button ion-button icon-start clear small>\n              <ion-icon name="thumbs-up"></ion-icon>\n              <div>9 Likes for Investments</div>\n            </button>\n          </ion-col>\n        </ion-row>\n      \n      </ion-card>\n\n\n      <ion-card>\n\n          <ion-item>\n            <ion-avatar item-start>\n              <img src="../assets/imgs/business2.jpg"/>\n            </ion-avatar>\n            <h2>Han Solo</h2>\n            <p>November 7, 1985</p>\n          </ion-item>\n        \n          <ion-card-content>\n            <p>Student at Davidson College</p>\n          </ion-card-content>\n        \n          <ion-row>\n            <ion-col>\n              <button ion-button icon-start clear small>\n                <ion-icon name="thumbs-up"></ion-icon>\n                <div>100 Likes for Investments</div>\n              </button>\n            </ion-col>\n          </ion-row>\n        \n        </ion-card>\n\n        <ion-card>\n\n            <ion-item>\n              <ion-avatar item-start>\n                <img src="../assets/imgs/business3.jpg"/>\n              </ion-avatar>\n              <h2>Ellen Ripley</h2>\n              <p>September 19, 1985</p>\n            </ion-item>\n          \n            <ion-card-content>\n              <p>Student at Davidson College</p>\n            </ion-card-content>\n          \n            <ion-row>\n              <ion-col>\n                <button ion-button icon-start clear small>\n                  <ion-icon name="thumbs-up"></ion-icon>\n                  <div>5 Likes for Investments</div>\n                </button>\n              </ion-col>\n            </ion-row>\n          \n          </ion-card>\n\n\n          <ion-card>\n\n              <ion-item>\n                <ion-avatar item-start>\n                  <img src="../assets/imgs/business4.jpg"/>\n                </ion-avatar>\n                <h2>Sarah Connor</h2>\n                <p>January 19, 1990</p>\n              </ion-item>\n            \n              <ion-card-content>\n                <p>Student at Davidson College</p>\n              </ion-card-content>\n            \n              <ion-row>\n                <ion-col>\n                  <button ion-button icon-start clear small>\n                    <ion-icon name="thumbs-up"></ion-icon>\n                    <div>31 Likes for Investments</div>\n                  </button>\n                </ion-col>\n              </ion-row>\n            \n            </ion-card>\n\n            <ion-card>\n\n                <ion-item>\n                  <ion-avatar item-start>\n                    <img src="../assets/imgs/business5.jpg"/>\n                  </ion-avatar>\n                  <h2>Laurie Strode</h2>\n                  <p>March 19, 1967</p>\n                </ion-item>\n              \n                <ion-card-content>\n                  <p>Student at Davidson College</p>\n                </ion-card-content>\n              \n                <ion-row>\n                  <ion-col>\n                    <button ion-button icon-start clear small>\n                      <ion-icon name="thumbs-up"></ion-icon>\n                      <div>9 Likes for Investments</div>\n                    </button>\n                  </ion-col>\n                </ion-row>\n              \n              </ion-card>\n  \n\n\n      \n\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/connections/connections.html"*/,
+            selector: 'page-dashboard',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/dashboard/dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button icon-only icon-left menuToggle>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content class="card-background-page">\n       <ion-card  (click)="loadPage(groupsPage)">\n        <img src="../assets/imgs/nasa.jpg"/>\n        <div class="card-title">Groups</div>\n        <div class="card-subtitle">3 Listings</div>\n        </ion-card>\n\n        <ion-card  (click)="loadPage(connectionsPage)">\n            <img src="../assets/imgs/connections.jpg"/>\n            <div class="card-title">Connections</div>\n            <div class="card-subtitle">5 Connections</div>\n        </ion-card>\n\n        <ion-card>\n            <img src="../assets/imgs/business.jpg"/>\n            <div class="card-title">Newsfeed</div>\n        </ion-card>\n    </ion-content>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/dashboard/dashboard.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], ConnectionsPage);
-    return ConnectionsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]])
+    ], DashboardPage);
+    return DashboardPage;
 }());
 
-//# sourceMappingURL=connections.js.map
+//# sourceMappingURL=dashboard.js.map
 
 /***/ }),
 
@@ -133,7 +148,7 @@ var GroupsPage = /** @class */ (function () {
     };
     GroupsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-groups',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/groups/groups.html"*/'<!--\n  Generated template for the GroupsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-buttons end>\n          <button ion-button icon-only (click)="addGroup()">\n            <ion-icon name="add"></ion-icon>\n          </button>\n      \n        </ion-buttons>\n        <ion-title>Groups</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-card (click)="loadPage()">\n      <ion-card-header>\n        Davidson College Junior Class\n      </ion-card-header>\n    \n      <ion-list>\n        <button ion-item>\n          <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -2.7%\n        </button>    \n      </ion-list>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n          Davidson College Investment Club\n        </ion-card-header>\n      \n        <ion-list>\n          <button ion-item>\n            <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -15.6%\n          </button>    \n        </ion-list>\n      </ion-card>\n\n      <ion-card>\n          <ion-card-header>\n            Davidson Invest Green\n          </ion-card-header>\n        \n          <ion-list>\n            <button ion-item>\n              <ion-icon name="ios-cash-outline" item-start></ion-icon>\n              +12.6%\n            </button>    \n          </ion-list>\n        </ion-card>\n    \n    \n    \n\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/groups/groups.html"*/,
+            selector: 'page-groups',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/groups/groups.html"*/'<!--\n  Generated template for the GroupsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-buttons end>\n          <button ion-button icon-only (click)="addGroup()">\n            <ion-icon name="add"></ion-icon>\n          </button>\n      \n        </ion-buttons>\n        <ion-title>Groups</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-card (click)="loadPage()">\n      <ion-card-header>\n        Davidson College Junior Class\n      </ion-card-header>\n    \n      <ion-list>\n        <button ion-item>\n          <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -2.7%\n        </button>    \n      </ion-list>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n          Davidson College Investment Club\n        </ion-card-header>\n      \n        <ion-list>\n          <button ion-item>\n            <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -15.6%\n          </button>    \n        </ion-list>\n      </ion-card>\n\n      <ion-card>\n          <ion-card-header>\n            Davidson Invest Green\n          </ion-card-header>\n        \n          <ion-list>\n            <button ion-item>\n              <ion-icon name="ios-cash-outline" item-start></ion-icon>\n              +12.6%\n            </button>    \n          </ion-list>\n        </ion-card>\n    \n    \n    \n\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/groups/groups.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], GroupsPage);
@@ -178,7 +193,7 @@ var ExamplepagePage = /** @class */ (function () {
     };
     ExamplepagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-examplepage',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/examplepage/examplepage.html"*/'<!--\n  Generated template for the ExamplepagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Davidson College Junior Class</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card>\n        <img src="../assets/imgs/stockmarket.png"/>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n         Apple Inc.\n        </ion-card-header>\n      \n        <ion-list>\n          <button ion-item>\n            <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -2.7%\n          </button>    \n        </ion-list>\n      </ion-card>\n\n      <ion-card>\n\n          <ion-item>\n            <ion-avatar item-start>\n              <img src="../assets/imgs/business4.jpg"/>\n            </ion-avatar>\n            <h2>Sarah Connor</h2>\n            <p>January 19, 1990</p>\n          </ion-item>\n        \n          <ion-card-content>\n            <p>Student at Davidson College</p>\n          </ion-card-content>\n        \n          <ion-row>\n            <ion-col>\n              <button ion-button icon-start clear small>\n                <ion-icon name="thumbs-up"></ion-icon>\n                <div>31 Likes for Investments</div>\n              </button>\n            </ion-col>\n          </ion-row>\n        \n        </ion-card>\n\n        <ion-card>\n\n            <ion-item>\n\n              <ion-avatar item-start>\n                <img src="../assets/imgs/business5.jpg"/>\n              </ion-avatar>\n              <h2>Laurie Strode</h2>\n              <p>March 19, 1967</p>\n            </ion-item>\n          \n            <ion-card-content>\n              <p>Student at Davidson College</p>\n            </ion-card-content>\n          \n            <ion-row>\n              <ion-col>\n                <button ion-button icon-start clear small>\n                  <ion-icon name="thumbs-up"></ion-icon>\n                  <div>9 Likes for Investments</div>\n                </button>\n              </ion-col>\n            </ion-row>\n          \n        </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/examplepage/examplepage.html"*/,
+            selector: 'page-examplepage',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/examplepage/examplepage.html"*/'<!--\n  Generated template for the ExamplepagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Davidson College Junior Class</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card>\n        <img src="../assets/imgs/stockmarket.png"/>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n         Apple Inc.\n        </ion-card-header>\n      \n        <ion-list>\n          <button ion-item>\n            <ion-icon name="ios-cash-outline" item-start></ion-icon>\n            -2.7%\n          </button>    \n        </ion-list>\n      </ion-card>\n\n      <ion-card>\n\n          <ion-item>\n            <ion-avatar item-start>\n              <img src="../assets/imgs/business4.jpg"/>\n            </ion-avatar>\n            <h2>Sarah Connor</h2>\n            <p>January 19, 1990</p>\n          </ion-item>\n        \n          <ion-card-content>\n            <p>Student at Davidson College</p>\n          </ion-card-content>\n        \n          <ion-row>\n            <ion-col>\n              <button ion-button icon-start clear small>\n                <ion-icon name="thumbs-up"></ion-icon>\n                <div>31 Likes for Investments</div>\n              </button>\n            </ion-col>\n          </ion-row>\n        \n        </ion-card>\n\n        <ion-card>\n\n            <ion-item>\n\n              <ion-avatar item-start>\n                <img src="../assets/imgs/business5.jpg"/>\n              </ion-avatar>\n              <h2>Laurie Strode</h2>\n              <p>March 19, 1967</p>\n            </ion-item>\n          \n            <ion-card-content>\n              <p>Student at Davidson College</p>\n            </ion-card-content>\n          \n            <ion-row>\n              <ion-col>\n                <button ion-button icon-start clear small>\n                  <ion-icon name="thumbs-up"></ion-icon>\n                  <div>9 Likes for Investments</div>\n                </button>\n              </ion-col>\n            </ion-row>\n          \n        </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/examplepage/examplepage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ExamplepagePage);
@@ -193,10 +208,56 @@ var ExamplepagePage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(105);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the LoadPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoadPage = /** @class */ (function () {
+    function LoadPage(navController) {
+        var _this = this;
+        this.navController = navController;
+        this.signupPage = __WEBPACK_IMPORTED_MODULE_2__signin_signin__["a" /* SigninPage */];
+        this.timer = setTimeout(function () { _this.navController.push(__WEBPACK_IMPORTED_MODULE_2__signin_signin__["a" /* SigninPage */]); }, 5000);
+    }
+    LoadPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-load',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/load/load.html"*/'<!--\n  Generated template for the LoadPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content padding>\n    <ion-icon name="custom-logo"></ion-icon>\n    <ion-spinner name="circles"></ion-spinner>\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/load/load.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
+    ], LoadPage);
+    return LoadPage;
+}());
+
+//# sourceMappingURL=load.js.map
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboard_dashboard__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboard_dashboard__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -254,7 +315,7 @@ var SigninPage = /** @class */ (function () {
     };
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signin',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/signin/signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar hideBackButton="true">\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding class = "getstart">\n      <ion-icon name="custom-logo" class="company-logo"></ion-icon>\n      <form #f="ngForm" (ngSubmit) = "login(f)">\n        <ion-list class="login-form">\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-person-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="email" ngModel name="email" required></ion-input>\n          </ion-list-header>\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-unlock-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="password" ngModel name="password" required></ion-input>\n          </ion-list-header>\n        </ion-list>\n        <button ion-button full type="submit" class="login-submit">Login</button>\n      </form>\n      <button ion-button full class="register-submit">Register</button>\n  </ion-content>\n  '/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/signin/signin.html"*/,
+            selector: 'page-signin',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/signin/signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar hideBackButton="true">\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding class = "getstart">\n      <ion-icon name="custom-logo" class="company-logo"></ion-icon>\n      <form #f="ngForm" (ngSubmit) = "login(f)">\n        <ion-list class="login-form">\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-person-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="email" ngModel name="email" required></ion-input>\n          </ion-list-header>\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-unlock-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="password" ngModel name="password" required></ion-input>\n          </ion-list-header>\n        </ion-list>\n        <button ion-button full type="submit" class="login-submit">Login</button>\n      </form>\n      <button ion-button full class="register-submit">Register</button>\n  </ion-content>\n  '/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/signin/signin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
@@ -266,7 +327,7 @@ var SigninPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -279,20 +340,20 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 114;
+webpackEmptyAsyncContext.id = 115;
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/add-group/add-group.module": [
-		275,
+		276,
 		6
 	],
 	"../pages/connections/connections.module": [
-		276,
+		275,
 		5
 	],
 	"../pages/dashboard/dashboard.module": [
@@ -300,11 +361,11 @@ var map = {
 		4
 	],
 	"../pages/examplepage/examplepage.module": [
-		278,
+		279,
 		3
 	],
 	"../pages/groups/groups.module": [
-		279,
+		278,
 		2
 	],
 	"../pages/load/load.module": [
@@ -327,54 +388,8 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 155;
+webpackAsyncContext.id = 156;
 module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 199:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(104);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the LoadPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LoadPage = /** @class */ (function () {
-    function LoadPage(navController) {
-        var _this = this;
-        this.navController = navController;
-        this.signupPage = __WEBPACK_IMPORTED_MODULE_2__signin_signin__["a" /* SigninPage */];
-        this.timer = setTimeout(function () { _this.navController.push(__WEBPACK_IMPORTED_MODULE_2__signin_signin__["a" /* SigninPage */]); }, 5000);
-    }
-    LoadPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-load',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/load/load.html"*/'<!--\n  Generated template for the LoadPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content padding>\n    <ion-icon name="custom-logo"></ion-icon>\n    <ion-spinner name="circles"></ion-spinner>\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/load/load.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
-    ], LoadPage);
-    return LoadPage;
-}());
-
-//# sourceMappingURL=load.js.map
 
 /***/ }),
 
@@ -400,15 +415,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_load_load__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signin_signin__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dashboard_dashboard__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_load_load__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signin_signin__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dashboard_dashboard__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_groups_groups__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_connections_connections__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_connections_connections__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_group_add_group__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_examplepage_examplepage__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -451,11 +466,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/add-group/add-group.module#AddGroupPageModule', name: 'AddGroupPage', segment: 'add-group', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/connections/connections.module#ConnectionsPageModule', name: 'ConnectionsPage', segment: 'connections', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-group/add-group.module#AddGroupPageModule', name: 'AddGroupPage', segment: 'add-group', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'DashboardPage', segment: 'dashboard', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/examplepage/examplepage.module#ExamplepagePageModule', name: 'ExamplepagePage', segment: 'examplepage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/groups/groups.module#GroupsPageModule', name: 'GroupsPage', segment: 'groups', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/examplepage/examplepage.module#ExamplepagePageModule', name: 'ExamplepagePage', segment: 'examplepage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/load/load.module#LoadPageModule', name: 'LoadPage', segment: 'load', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signin/signin.module#SigninPageModule', name: 'SigninPage', segment: 'signin', priority: 'low', defaultHistory: [] }
                     ]
@@ -494,9 +509,9 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_load_load__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_load_load__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -523,15 +538,14 @@ var MyApp = /** @class */ (function () {
     }
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('nav'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/app/app.html"*/'<ion-menu [content] = "nav">\n <ion-header>\n    <ion-toolbar>\n        <ion-title></ion-title>\n    </ion-toolbar>\n </ion-header>\n <ion-content>\n     <ion-list>\n         <button ion-item icon-left>\n             <ion-icon name ="ios-person-outline"></ion-icon>\n             About Me\n         </button>\n        <button ion-item icon-left>\n            <ion-icon name ="ios-cog-outline"></ion-icon>\n            Settings\n        </button>\n     </ion-list>\n </ion-content>\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #nav></ion-nav>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/app/app.html"*/'<ion-menu [content] = "nav">\n <ion-header>\n    <ion-toolbar>\n        <ion-title></ion-title>\n    </ion-toolbar>\n </ion-header>\n <ion-content>\n     <ion-list>\n         <button ion-item icon-left>\n             <ion-icon name ="ios-person-outline"></ion-icon>\n             About Me\n         </button>\n        <button ion-item icon-left>\n            <ion-icon name ="ios-cog-outline"></ion-icon>\n            Settings\n        </button>\n     </ion-list>\n </ion-content>\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #nav></ion-nav>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -562,7 +576,7 @@ var HomePage = /** @class */ (function () {
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-icon name="custom-logo"></ion-icon>\n  <ion-spinner name="circles"></ion-spinner>\n</ion-content>\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-icon name="custom-logo"></ion-icon>\n  <ion-spinner name="circles"></ion-spinner>\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], HomePage);
@@ -573,15 +587,13 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConnectionsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_groups__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__connections_connections__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -593,40 +605,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
 /**
- * Generated class for the DashboardPage page.
+ * Generated class for the ConnectionsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var DashboardPage = /** @class */ (function () {
-    function DashboardPage(navCtrl, navParams, menuCtrl) {
+var ConnectionsPage = /** @class */ (function () {
+    function ConnectionsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.menuCtrl = menuCtrl;
-        this.groupsPage = __WEBPACK_IMPORTED_MODULE_2__groups_groups__["a" /* GroupsPage */];
-        this.connectionsPage = __WEBPACK_IMPORTED_MODULE_3__connections_connections__["a" /* ConnectionsPage */];
     }
-    DashboardPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad DashboardPage');
-    };
-    DashboardPage.prototype.loadPage = function (page) {
-        this.navCtrl.push(page);
-        this.menuCtrl.close();
-    };
-    DashboardPage = __decorate([
+    ConnectionsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dashboard',template:/*ion-inline-start:"/home/madays/Code/Hackathons/milleniaires/src/pages/dashboard/dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button icon-only icon-left menuToggle>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content class="card-background-page">\n       <ion-card  (click)="loadPage(groupsPage)">\n        <img src="../assets/imgs/nasa.jpg"/>\n        <div class="card-title">Groups</div>\n        <div class="card-subtitle">3 Listings</div>\n        </ion-card>\n\n        <ion-card  (click)="loadPage(connectionsPage)">\n            <img src="../assets/imgs/connections.jpg"/>\n            <div class="card-title">Connections</div>\n            <div class="card-subtitle">5 Connections</div>\n        </ion-card>\n\n        <ion-card>\n            <img src="../assets/imgs/business.jpg"/>\n            <div class="card-title">Newsfeed</div>\n        </ion-card>\n    </ion-content>\n</ion-content>\n\n\n'/*ion-inline-end:"/home/madays/Code/Hackathons/milleniaires/src/pages/dashboard/dashboard.html"*/,
+            selector: 'page-connections',template:/*ion-inline-start:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/connections/connections.html"*/'<!--\n  Generated template for the ConnectionsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="add"></ion-icon>\n      </button>\n  \n    </ion-buttons>\n    <ion-title>Connections</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card>\n\n        <ion-item>\n          <ion-avatar item-start>\n            <img src="../assets/imgs/business1.jpeg"/>\n          </ion-avatar>\n          <h2>Marty McFly</h2>\n          <p>November 5, 1955</p>\n        </ion-item>\n      \n        <ion-card-content>\n          <p>Student at Davidson College</p>\n        </ion-card-content>\n      \n        <ion-row>\n          <ion-col>\n            <button ion-button icon-start clear small>\n              <ion-icon name="thumbs-up"></ion-icon>\n              <div>9 Likes for Investments</div>\n            </button>\n          </ion-col>\n        </ion-row>\n      \n      </ion-card>\n\n\n      <ion-card>\n\n          <ion-item>\n            <ion-avatar item-start>\n              <img src="../assets/imgs/business2.jpg"/>\n            </ion-avatar>\n            <h2>Han Solo</h2>\n            <p>November 7, 1985</p>\n          </ion-item>\n        \n          <ion-card-content>\n            <p>Student at Davidson College</p>\n          </ion-card-content>\n        \n          <ion-row>\n            <ion-col>\n              <button ion-button icon-start clear small>\n                <ion-icon name="thumbs-up"></ion-icon>\n                <div>100 Likes for Investments</div>\n              </button>\n            </ion-col>\n          </ion-row>\n        \n        </ion-card>\n\n        <ion-card>\n\n            <ion-item>\n              <ion-avatar item-start>\n                <img src="../assets/imgs/business3.jpg"/>\n              </ion-avatar>\n              <h2>Ellen Ripley</h2>\n              <p>September 19, 1985</p>\n            </ion-item>\n          \n            <ion-card-content>\n              <p>Student at Davidson College</p>\n            </ion-card-content>\n          \n            <ion-row>\n              <ion-col>\n                <button ion-button icon-start clear small>\n                  <ion-icon name="thumbs-up"></ion-icon>\n                  <div>5 Likes for Investments</div>\n                </button>\n              </ion-col>\n            </ion-row>\n          \n          </ion-card>\n\n\n          <ion-card>\n\n              <ion-item>\n                <ion-avatar item-start>\n                  <img src="../assets/imgs/business4.jpg"/>\n                </ion-avatar>\n                <h2>Sarah Connor</h2>\n                <p>January 19, 1990</p>\n              </ion-item>\n            \n              <ion-card-content>\n                <p>Student at Davidson College</p>\n              </ion-card-content>\n            \n              <ion-row>\n                <ion-col>\n                  <button ion-button icon-start clear small>\n                    <ion-icon name="thumbs-up"></ion-icon>\n                    <div>31 Likes for Investments</div>\n                  </button>\n                </ion-col>\n              </ion-row>\n            \n            </ion-card>\n\n            <ion-card>\n\n                <ion-item>\n                  <ion-avatar item-start>\n                    <img src="../assets/imgs/business5.jpg"/>\n                  </ion-avatar>\n                  <h2>Laurie Strode</h2>\n                  <p>March 19, 1967</p>\n                </ion-item>\n              \n                <ion-card-content>\n                  <p>Student at Davidson College</p>\n                </ion-card-content>\n              \n                <ion-row>\n                  <ion-col>\n                    <button ion-button icon-start clear small>\n                      <ion-icon name="thumbs-up"></ion-icon>\n                      <div>9 Likes for Investments</div>\n                    </button>\n                  </ion-col>\n                </ion-row>\n              \n              </ion-card>\n  \n\n\n      \n\n</ion-content>\n'/*ion-inline-end:"/Users/yangzijiang/Desktop/Hackathon App/millenniaires1.1/millenniaires/src/pages/connections/connections.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]])
-    ], DashboardPage);
-    return DashboardPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], ConnectionsPage);
+    return ConnectionsPage;
 }());
 
-//# sourceMappingURL=dashboard.js.map
+//# sourceMappingURL=connections.js.map
 
 /***/ })
 
