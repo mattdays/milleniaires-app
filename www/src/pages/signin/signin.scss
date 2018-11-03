@@ -1,0 +1,37 @@
+page-signin {
+    .getstart{
+        background-image: url('../../assets/imgs/background.png');
+        background-size: 100%;
+        bottom: 10%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+
+    .company-logo{
+        color: #42f480; //green icon
+        font-size: 250px; //larger icon
+        left: 0; //left margin
+        right: 0; //right margin
+        position: fixed;
+        margin:0 auto;
+        top:20%; //top margin
+        transform:translateY(-50%);
+    }
+
+    .login{
+        color: #42f480; //green icon
+        font-size: 30px;
+    }
+
+    .login-facebook{
+        background-color:#3b5998;
+    }
+
+    .login-form{
+        padding-top: 60%;
+    }
+
+    .login-submit{
+        background-color:#42f480;
+    }
+}
