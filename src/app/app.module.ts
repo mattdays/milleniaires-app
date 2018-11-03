@@ -14,6 +14,17 @@ import { ConnectionsPage } from '../pages/connections/connections';
 import { AddGroupPage } from '../pages/add-group/add-group';
 import { ExamplepagePage } from '../pages/examplepage/examplepage';
 
+import firebase from 'firebase';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAbeLYe8obSBUkCXPqkg38bG2NPOkjA168",
+  authDomain: "ionic2-millenniaires.firebaseapp.com",
+  databaseURL: "https://ionic2-millenniaires.firebaseio.com",
+  projectId: "ionic2-millenniaires",
+  storageBucket: "ionic2-millenniaires.appspot.com",
+  messagingSenderId: "337248717211"
+});
+
 @NgModule({
   declarations: [
     MyApp,

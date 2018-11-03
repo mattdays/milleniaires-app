@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { DashboardPage } from '../dashboard/dashboard';
+import firebase from 'firebase';
 
 /**
  * Generated class for the SigninPage page.
@@ -49,6 +50,17 @@ export class SigninPage {
       loading.dismiss();
       this.navCtrl.setRoot(DashboardPage);
     }
+  }
+
+  loginFacebook(){
+    let provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithRedirect(provider).then(() => {
+      firebase.auth().getRedirectResult().then((result) => {
+        alert(JSON.stringify(result));
+      }).catch(function(error) {
+        alert(JSON.stringify(error))
+      });
+    });
   }
 
 }
