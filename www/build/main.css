@@ -25801,3 +25801,7 @@ page-signin .login-form {
 page-signin .login-submit {
   background-color: #42f480;
 }
+
+page-signup .login {
+  background-color: #42f480;
+}
