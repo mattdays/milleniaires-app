@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoadPage } from '../pages/load/load';
 import { DashboardPage } from '../pages/dashboard/dashboard';
-import firebase from 'firebase';
 import { SigninPage } from '../pages/signin/signin';
 import { AddGroupPage } from '../pages/add-group/add-group';
 import { GroupsPage } from '../pages/groups/groups';
@@ -54,7 +53,7 @@ export class MyApp {
 
   logOut(){
     const loading = this.loadCtrl.create({
-      content: "Sign you out"
+      content: "Sign you out..."
     });
     loading.present();
     this.authService.logOut();

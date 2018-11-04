@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { GroupsPage } from '../groups/groups';
 import { ConnectionsPage } from '../connections/connections';
+import { AuthService } from '../../services/auth';
 
 /**
  * Generated class for the DashboardPage page.
@@ -21,13 +22,17 @@ export class DashboardPage {
   groupsPage = GroupsPage;
   connectionsPage = ConnectionsPage;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private menuCtrl: MenuController) {
+    private menuCtrl: MenuController, private authService: AuthService) {
 
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    if(this.authService.firstLogin()){
+      console.log("this is my first login");
+    } else {
+      console.log("I have already logged in");
+    }
   }
 
   loadPage(page: any){
