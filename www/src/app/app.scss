@@ -1,0 +1,14 @@
+ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 40% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 0.7em;
+      height: 0.7em;
+    }
+  
+    &[class*="custom-logo"] {
+      mask-image: url(../assets/imgs/milleniaires.png);
+    }
+  }

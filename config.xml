@@ -92,9 +92,16 @@
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-facebook4" spec="^3.1.0">
         <variable name="APP_ID" value="594276054362711" />
         <variable name="APP_NAME" value="Millenniaire" />
     </plugin>
     <engine name="browser" spec="~5.0.4" />
+=======
+    <plugin name="cordova-plugin-facebook4" spec="~3.1.0">
+        <variable name="APP_ID" value="165643724387178" />
+        <variable name="APP_NAME" value="milleniaires" />
+    </plugin>
+>>>>>>> 2a3b7ce34e472162f210f73b127b84a9b50806ff
 </widget>

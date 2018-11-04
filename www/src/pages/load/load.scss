@@ -1,0 +1,25 @@
+page-load {
+    ion-icon{
+        color: #42f480; //green icon
+        font-size: 280px; //larger icon
+        position:absolute; 
+        left: 0%; //left margin
+        right: 0; //right margin
+        margin:0 auto;
+        top:40%; //top margin
+        transform:translateY(-50%);
+    }
+
+    ion-spinner {
+        width: 30px; //width individual circle
+        height: 30px; //height individual circle
+        stroke: #42f480; //stroke color
+        fill: white;
+        position:absolute; 
+        left: 0; //left margin
+        right: 0; //right margin
+        margin:0 auto;
+        top:55%; //top margin
+        transform:translateY(-50%);
+    }
+}

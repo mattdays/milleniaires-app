@@ -1,0 +1,27 @@
+<ion-menu [content] = "nav">
+ <ion-header>
+    <ion-toolbar>
+        <ion-title></ion-title>
+    </ion-toolbar>
+ </ion-header>
+ <ion-content>
+     <ion-list>
+         <button ion-item icon-left>
+             <ion-icon name ="ios-person-outline"></ion-icon>
+             About Me
+         </button>
+         <button ion-item icon-left>
+            <ion-icon name ="ios-git-network-outline"></ion-icon>
+             Connections
+        </button>
+        <button ion-item icon-left>
+            <ion-icon name ="ios-cog-outline"></ion-icon>
+            Settings
+        </button>
+     </ion-list>
+ </ion-content>
+</ion-menu>
+
+
+
+<ion-nav [root]="rootPage" #nav></ion-nav>

@@ -59,6 +59,7 @@
       "cordova-plugin-browsertab": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-facebook4": {
+<<<<<<< HEAD
         "APP_ID": "594276054362711",
         "APP_NAME": "Millenniaire"
       },
@@ -72,5 +73,11 @@
     "platforms": [
       "browser"
     ]
+=======
+        "APP_ID": "165643724387178",
+        "APP_NAME": "milleniaires"
+      }
+    }
+>>>>>>> 2a3b7ce34e472162f210f73b127b84a9b50806ff
   }
 }

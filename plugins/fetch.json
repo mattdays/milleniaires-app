@@ -34,6 +34,7 @@
   "cordova-plugin-facebook4": {
     "source": {
       "type": "registry",
+<<<<<<< HEAD
       "id": "cordova-plugin-facebook4@^3.1.0"
     },
     "is_top_level": true,
@@ -98,5 +99,14 @@
     },
     "is_top_level": true,
     "variables": {}
+=======
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "165643724387178",
+      "APP_NAME": "milleniaires"
+    }
+>>>>>>> 2a3b7ce34e472162f210f73b127b84a9b50806ff
   }
 }

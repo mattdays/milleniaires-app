@@ -359,6 +359,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_add_group_add_group__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_groups_groups__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -378,9 +379,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, authService) {
+    function MyApp(platform, statusBar, splashScreen, authService, menuCtrl, loadCtrl) {
         this.authService = authService;
+        this.menuCtrl = menuCtrl;
+        this.loadCtrl = loadCtrl;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_load_load__["a" /* LoadPage */];
         //rootPage:any = DashboardPage;
         this.tabsPage = __WEBPACK_IMPORTED_MODULE_5__pages_dashboard_dashboard__["a" /* DashboardPage */];
@@ -408,17 +412,27 @@ var MyApp = /** @class */ (function () {
     MyApp.prototype.onload = function (page) {
         this.nav.push(this.tabsPage);
     };
+    MyApp.prototype.logOut = function () {
+        var loading = this.loadCtrl.create({
+            content: "Sign you out"
+        });
+        loading.present();
+        this.authService.logOut();
+        this.menuCtrl.close();
+        this.nav.setRoot(this.signinPage);
+        loading.dismiss();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('nav'),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/app/app.html"*/'<ion-menu [content] = "nav">\n <ion-header>\n    <ion-toolbar>\n        <ion-title></ion-title>\n    </ion-toolbar>\n </ion-header>\n <ion-content>\n     <ion-list>\n         <button ion-item icon-left>\n             <ion-icon name ="ios-person-outline"></ion-icon>\n             About Me\n         </button>\n        <button ion-item icon-left>\n            <ion-icon name ="ios-cog-outline"></ion-icon>\n            Settings\n        </button>\n     </ion-list>\n </ion-content>\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #nav></ion-nav>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/app/app.html"*/'<ion-menu [content] = "nav">\n <ion-header>\n    <ion-toolbar>\n        <ion-title></ion-title>\n    </ion-toolbar>\n </ion-header>\n <ion-content>\n     <ion-list>\n         <button ion-item icon-left>\n             <ion-icon name ="ios-person-outline"></ion-icon>\n             About Me\n         </button>\n        <button ion-item icon-left>\n            <ion-icon name ="ios-cog-outline"></ion-icon>\n            Settings\n        </button>\n\n        <button ion-item icon-left (click) = "logOut()">\n                <ion-icon name ="ios-exit-outline"></ion-icon>\n                Logout\n            </button>\n     </ion-list>\n </ion-content>\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #nav></ion-nav>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_10__services_auth__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__services_auth__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
