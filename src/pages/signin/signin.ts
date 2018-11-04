@@ -32,35 +32,25 @@ export class SigninPage {
   }
 
   login(form: NgForm){
-    // const loading = this.loadingCtrl.create({
-    //   content:'Signing you in...'
-    // });
-    // loading.present();
-    // console.log(form.value);
-    //   if (form.value.email != "madays@davidson.edu"){
-    //     loading.dismiss();
-    //     const alert = this.alertCtrl.create({
-    //       title: 'Wrong username!',
-    //       buttons: ['Ok']
-    //     });
-    //     alert.present();
-    //   } else if (form.value.password != '0000'){
-    //     loading.dismiss();
-    //     const alert = this.alertCtrl.create({
-    //       title: 'Wrong password!',
-    //       buttons: ['Ok']
-    //     });
-    //     alert.present();
-    //   } else {
-    //     loading.dismiss();
-    //     this.navCtrl.setRoot(DashboardPage);
-    //   }
+    const loading = this.loadingCtrl.create({
+      content: "Sign you in to be a milliniaire..."
+    });
+    loading.present();
+
     this.authService.signin(form.value.email, form.value.password).
     then(data => {
-      console.log(data)
+      loading.dismiss();
+      this.navCtrl.setRoot(DashboardPage);
     })
     .catch(error => {
+      loading.dismiss();
       console.log(error);
+      const alert = this.alertCtrl.create({
+        title: 'Signin failed!',
+        message: error.message,
+        buttons: ['Ok']
+      });
+      alert.present();
     });
     }
 

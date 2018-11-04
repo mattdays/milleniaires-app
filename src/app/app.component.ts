@@ -7,22 +7,48 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoadPage } from '../pages/load/load';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import firebase from 'firebase';
+import { SigninPage } from '../pages/signin/signin';
+import { AddGroupPage } from '../pages/add-group/add-group';
+import { GroupsPage } from '../pages/groups/groups';
+import { SignupPage } from '../pages/signup/signup';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = LoadPage;
-  // rootPage:any = DashboardPage;
-  @ViewChild('nav') nav: NavController;
+  //rootPage:any = DashboardPage;
+  tabsPage = DashboardPage;
+  addGroupPage = AddGroupPage;
+  groupsPage = GroupsPage;
+  signinPage = SigninPage;
+  signupPage = SignupPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-        platform.ready().then(() => {
+  @ViewChild('nav') nav: NavController;
+  isAuthenticated = false;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+    private authService) {
+      platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    // firebase.auth().onAuthStateChanged(user => {
+    //   if (user) {
+    //     this.isAuthenticated = true;
+    //     //this.nav.setRoot(DashboardPage);
+    //   } else {
+    //     this.isAuthenticated = false;
+    //     this.nav.setRoot(SigninPage);
+    //   }
+    // });
+  }
+
+  onload(page: any){
+    this.nav.push(this.tabsPage);
   }
 }
 
