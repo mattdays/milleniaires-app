@@ -808,16 +808,16 @@ var SignupPage = /** @class */ (function () {
         console.log('ionViewDidLoad SignupPage');
     };
     SignupPage.prototype.onSignup = function (form) {
-        this.authService.signup(form.value.email, form.value.password);
+        this.authService.signup(form.value.email, form.value.password, form.value.name, form.value.surname);
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-signup',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit) = "onSignup(f)">\n    <ion-list>\n        <ion-item>\n            <ion-label fixed>\n                Name\n            </ion-label>\n              <ion-input \n              type = "name" \n              ngModel \n              name="name"\n              required></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label fixed>\n                Surname\n            </ion-label>\n              <ion-input \n              type = "surname" \n              ngModel \n              name="surname"\n              required></ion-input>\n        </ion-item>\n      <ion-item>\n          <ion-label fixed>\n              Email\n          </ion-label>\n            <ion-input \n            type = "email" \n            ngModel \n            name="email"\n            required></ion-input>\n      </ion-item>\n      <ion-item>\n          <ion-label fixed>\n              Password\n          </ion-label>\n              <ion-input \n              type = "password" \n              ngModel \n              name="password"\n              [minlength]="6"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Signup</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */]) === "function" && _c || Object])
     ], SignupPage);
     return SignupPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=signup.js.map

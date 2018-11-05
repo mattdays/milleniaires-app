@@ -27,8 +27,6 @@ export class SignupPage {
   }
 
   onSignup(form: NgForm){
-    console.log(form.value.name);
-    console.log(form.value.surname);
     this.authService.signup(form.value.email, form.value.password, form.value.name, form.value.surname);
   }
 }
