@@ -16,6 +16,26 @@
 <ion-content padding>
   <form #f="ngForm" (ngSubmit) = "onSignup(f)">
     <ion-list>
+        <ion-item>
+            <ion-label fixed>
+                Name
+            </ion-label>
+              <ion-input 
+              type = "name" 
+              ngModel 
+              name="name"
+              required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>
+                Surname
+            </ion-label>
+              <ion-input 
+              type = "surname" 
+              ngModel 
+              name="surname"
+              required></ion-input>
+        </ion-item>
       <ion-item>
           <ion-label fixed>
               Email

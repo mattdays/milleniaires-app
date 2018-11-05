@@ -21,19 +21,17 @@ export class DashboardPage {
 
   groupsPage = GroupsPage;
   connectionsPage = ConnectionsPage;
+  public myName: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private menuCtrl: MenuController, private authService: AuthService) {
 
-
   }
 
-  ionViewDidLoad() {
-    if(this.authService.firstLogin()){
-      console.log("this is my first login");
-    } else {
-      console.log("I have already logged in");
-    }
+  ionViewDidLoad(){
+    this.myName = this.authService.getDisplayName();
+    console.log(this.myName);
   }
+
 
   loadPage(page: any){
     this.navCtrl.push(page);

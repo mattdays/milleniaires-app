@@ -241,7 +241,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_firebase__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_signup_signup__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_auth__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -359,7 +359,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_add_group_add_group__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_groups_groups__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -401,8 +401,6 @@ var MyApp = /** @class */ (function () {
         });
         // firebase.auth().onAuthStateChanged(user => {
         //   if (user) {
-        //     this.isAuthenticated = true;
-        //     //this.nav.setRoot(DashboardPage);
         //   } else {
         //     this.isAuthenticated = false;
         //     this.nav.setRoot(SigninPage);
@@ -474,7 +472,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 48:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -487,25 +485,33 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.signup = function (email, password) {
         __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
-            __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.database().ref('users/' + user.user.uid + '/firstLogin').set(0);
+            __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.database().ref('users/' + user.user.uid + '/firstLogin').set(1);
             console.log(user);
         }).catch(function (error) {
             return console.log(error);
         });
     };
+    AuthService.prototype.changeFirstLogin = function (toChange) {
+        __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.database().ref('users/' + this.getActiveUser().uid + '/firstLogin').set(1);
+    };
     AuthService.prototype.signin = function (email, password) {
         return __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().signInWithEmailAndPassword(email, password);
     };
     AuthService.prototype.firstLogin = function () {
-        var myUser = this.getActiveUser();
-        var firstLogin = __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.database().ref('users/' + myUser + '/firstLogin').on;
-        return firstLogin;
+        var myCurrentUser = this.getActiveUser().uid;
+        console.log(myCurrentUser);
+        var firstLogin = __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.database().ref('users/' + myCurrentUser);
+        firstLogin.on("value", function (snapshot) {
+            return snapshot.val()['firstLogin'];
+        }, function (error) {
+            console.log("Error: " + error.code);
+        });
     };
     AuthService.prototype.logOut = function () {
         __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().signOut;
     };
     AuthService.prototype.getActiveUser = function () {
-        __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().currentUser;
+        return __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().currentUser;
     };
     return AuthService;
 }());
@@ -568,7 +574,7 @@ var AddGroupPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_groups__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__connections_connections__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -599,11 +605,14 @@ var DashboardPage = /** @class */ (function () {
         this.connectionsPage = __WEBPACK_IMPORTED_MODULE_3__connections_connections__["a" /* ConnectionsPage */];
     }
     DashboardPage.prototype.ionViewDidLoad = function () {
-        if (this.authService.firstLogin()) {
-            console.log("this is my first login");
-        }
-        else {
-            console.log("I have already logged in");
+        // if(this.authService.firstLogin()"){
+        //   console.log("this is my first login");
+        // } else {
+        //   console.log("I have already logged in");
+        // 
+        if (this.authService.getActiveUser()) {
+            this.authService.changeFirstLogin(0);
+            console.log("need to register name and surname");
         }
     };
     DashboardPage.prototype.loadPage = function (page) {
@@ -612,12 +621,12 @@ var DashboardPage = /** @class */ (function () {
     };
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dashboard',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/dashboard/dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n        <ion-buttons>\n                <button ion-button icon-left icon-only menuToggle>\n                    <ion-icon name="menu"></ion-icon>\n                </button>\n        </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content class="card-background-page">\n       <ion-card  (click)="loadPage(groupsPage)">\n        <img src="../assets/imgs/nasa.jpg"/>\n        <div class="card-title">Groups</div>\n        <div class="card-subtitle">3 Listings</div>\n        </ion-card>\n\n        <ion-card  (click)="loadPage(connectionsPage)">\n            <img src="../assets/imgs/connections.jpg"/>\n            <div class="card-title">Connections</div>\n            <div class="card-subtitle">5 Connections</div>\n        </ion-card>\n    </ion-content>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/dashboard/dashboard.html"*/,
+            selector: 'page-dashboard',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/dashboard/dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n  <ion-navbar>\n        <ion-title>{{myName}}</ion-title>\n        <ion-buttons>\n                <button ion-button icon-left icon-only menuToggle>\n                    <ion-icon name="menu"></ion-icon>\n                </button>\n        </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content class="card-background-page">\n       <ion-card  (click)="loadPage(groupsPage)">\n        <img src="../assets/imgs/nasa.jpg"/>\n        <div class="card-title">Groups</div>\n        <div class="card-subtitle">3 Listings</div>\n        </ion-card>\n\n        <ion-card  (click)="loadPage(connectionsPage)">\n            <img src="../assets/imgs/connections.jpg"/>\n            <div class="card-title">Connections</div>\n            <div class="card-subtitle">5 Connections</div>\n        </ion-card>\n    </ion-content>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/dashboard/dashboard.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth__["a" /* AuthService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_4__services_auth__["a" /* AuthService */]])
     ], DashboardPage);
     return DashboardPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=dashboard.js.map
@@ -690,7 +699,7 @@ var GroupsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboard_dashboard__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -750,7 +759,7 @@ var SigninPage = /** @class */ (function () {
     };
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signin',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signin/signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<script>window.top.location = \'https://apps.facebook.com/yourappnamespace/\';</script>"\n\n<ion-header>\n    <ion-navbar hideBackButton="true">\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding class = "getstart">\n      <ion-icon name="custom-logo" class="company-logo"></ion-icon>\n      <form #f="ngForm" (ngSubmit) = "login(f)">\n        <ion-list class="login-form">\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-person-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="email" ngModel name="email" required></ion-input>\n          </ion-list-header>\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-unlock-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="password" ngModel name="password" required></ion-input>\n          </ion-list-header>\n        </ion-list>\n        <button ion-button full type="submit" class="login-submit">Login</button>\n        <button ion-button full (click) = "changeSignupPage()" class="register-submit">Register</button>\n      </form>\n  </ion-content>\n  '/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signin/signin.html"*/,
+            selector: 'page-signin',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signin/signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<script>window.top.location = \'https://apps.facebook.com/yourappnamespace/\';</script>"\n\n<ion-header>\n    <ion-navbar hideBackButton="true">\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content padding class = "getstart">\n      <ion-icon name="custom-logo" class="company-logo"></ion-icon>\n      <form #f="ngForm" (ngSubmit) = "login(f)">\n        <ion-list class="login-form">\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-person-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="email" ngModel name="email" required></ion-input>\n          </ion-list-header>\n          <ion-list-header>\n              <ion-label> <ion-icon class = "login" name="ios-unlock-outline"></ion-icon></ion-label>\n              <ion-input clearInput type="password" ngModel name="password" required></ion-input>\n          </ion-list-header>\n        </ion-list>\n        <button ion-button full type="submit" class="login-submit">Login</button>\n      </form>\n      <button ion-button full (click) = "changeSignupPage()" class="register-submit">Register</button>\n  </ion-content>\n  '/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signin/signin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
@@ -770,7 +779,7 @@ var SigninPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -803,7 +812,7 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit) = "onSignup(f)">\n    <ion-list>\n      <ion-item>\n          <ion-label fixed>\n              Email\n          </ion-label>\n            <ion-input \n            type = "email" \n            ngModel \n            name="email"\n            required></ion-input>\n      </ion-item>\n      <ion-item>\n          <ion-label fixed>\n              Password\n          </ion-label>\n              <ion-input \n              type = "password" \n              ngModel \n              name="password"\n              [minlength]="6"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Signup</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit) = "onSignup(f)">\n    <ion-list>\n        <ion-item>\n            <ion-label fixed>\n                Name\n            </ion-label>\n              <ion-input \n              type = "name" \n              ngModel \n              name="name"\n              required></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label fixed>\n                Surname\n            </ion-label>\n              <ion-input \n              type = "surname" \n              ngModel \n              name="surname"\n              required></ion-input>\n        </ion-item>\n      <ion-item>\n          <ion-label fixed>\n              Email\n          </ion-label>\n            <ion-input \n            type = "email" \n            ngModel \n            name="email"\n            required></ion-input>\n      </ion-item>\n      <ion-item>\n          <ion-label fixed>\n              Password\n          </ion-label>\n              <ion-input \n              type = "password" \n              ngModel \n              name="password"\n              [minlength]="6"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Signup</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */]])

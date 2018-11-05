@@ -11,6 +11,7 @@ import { AddGroupPage } from '../pages/add-group/add-group';
 import { GroupsPage } from '../pages/groups/groups';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthService } from '../services/auth';
+import firebase from 'firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -38,8 +39,7 @@ export class MyApp {
 
     // firebase.auth().onAuthStateChanged(user => {
     //   if (user) {
-    //     this.isAuthenticated = true;
-    //     //this.nav.setRoot(DashboardPage);
+        
     //   } else {
     //     this.isAuthenticated = false;
     //     this.nav.setRoot(SigninPage);
