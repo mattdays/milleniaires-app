@@ -5,6 +5,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import firebase from 'firebase';
 import { SignupPage } from '../signup/signup';
 import { AuthService } from '../../services/auth';
+import { Http } from '@angular/http';
 //import {Facebook} from "@ionic-native/facebook";
 
 
@@ -24,16 +25,13 @@ export class SigninPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private alertCtrl: AlertController, private loadingCtrl: LoadingController,
-    private authService: AuthService) {
+    private authService: AuthService, private http: Http) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
-  }
 
   login(form: NgForm){
     const loading = this.loadingCtrl.create({
-      content: "Sign you in to be a milliniaire..."
+      content: "Sign you in to be a milleniaire..."
     });
     loading.present();
 
@@ -76,5 +74,13 @@ export class SigninPage {
   //     })
   //   })
   // }
+  registerUser(userId: any){
+    var myConnections = [];
+    var myGroups = [];
+    this.http.put("https://ionic2-millenniaires.firebaseio.com/" + userId + '/numConnections', 0); //put num connections
+    this.http.put("https://ionic2-millenniaires.firebaseio.com/" + userId + '/connections', myConnections); //put connections list
+    this.http.put("https://ionic2-millenniaires.firebaseio.com/" + userId + '/numGroups', 0); //put num groups
+    this.http.put("https://ionic2-millenniaires.firebaseio.com/" + userId + '/groups', myGroups); //put num groups
+}
 
 }

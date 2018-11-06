@@ -17,6 +17,7 @@ import {Facebook} from "@ionic-native/facebook";
 import firebase from 'firebase';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthService } from '../services/auth';
+import { HttpModule } from '@angular/http';
 
 export const firebaseConfig={
   apiKey: "AIzaSyAbeLYe8obSBUkCXPqkg38bG2NPOkjA168",
@@ -53,7 +54,8 @@ firebase.initializeApp(firebaseConfig);
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
