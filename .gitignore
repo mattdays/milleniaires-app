@@ -1,18 +1,14 @@
 
-www/build/0\.js
+# Ignore everything in the root
+/*
 
-www/build/2\.js
+# Un-ingnore all of src
 
-www/build/4\.js
+!src/
 
-www/build/5\.js
+!.gitignore
+!config.xml
+!ionic.config.json
+!LICENSE
+!README.md
 
-www/build/7\.js
-
-www/build/main\.js
-
-www/build/main\.js\.map
-
-www/build/vendor\.js
-
-www/build/vendor\.js\.map
