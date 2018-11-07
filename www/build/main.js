@@ -547,8 +547,6 @@ var AuthService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddGroupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -560,8 +558,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
 /**
  * Generated class for the AddGroupPage page.
  *
@@ -569,46 +565,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var AddGroupPage = /** @class */ (function () {
-    function AddGroupPage(navCtrl, navParams, authService, http) {
+    function AddGroupPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.authService = authService;
-        this.http = http;
     }
-    // addGroup(form: NgForm){
-    //   var myUser = this.authService.getActiveUser().uid; //get my user
-    //   var myGroup = form.value.groupTitle;
-    //   var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/groups');
-    // //   var test = numRef.on('value', function(snapshot) {
-    // //     var myVal = snapshot.val();
-    // //     return myVal;
-    // // });
-    // //   return firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numConnections').once('value').then(function(snapshot) {
-    // //   });
-    //   myRef.on("value", snap => {
-    //     if(JSON.stringify(snap.val(), null, 3) == null){
-    //       var emptyList = [];
-    //       emptyList.push(myGroup);
-    //       this.http.put("https://ionic2-millenniaires.firebaseio.com/" + myUser + '/groups', emptyList); //put num connections
-    //     } else {
-    //       var myList = JSON.stringify(snap.val(), null, 3);
-    //     }
-    //   })
-    // }
-    AddGroupPage.prototype.fetchList = function (token) {
-        var userId = this.authService.getActiveUser().uid;
-    };
-    AddGroupPage.prototype.storeList = function (token) {
-        var userId = this.authService.getActiveUser().uid;
+    AddGroupPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AddGroupPage');
     };
     AddGroupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-group',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/add-group/add-group.html"*/'<!--\n  Generated template for the AddGroupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Add Group</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit) = "addGroup(f)">\n    <ion-list>\n      <ion-item>\n        <ion-label>Title</ion-label>\n        <ion-input \n              type = "groupTitle" \n              ngModel \n              name="groupTitle"\n              required></ion-input>\n      </ion-item>\n      <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Add Group</button>\n  </ion-list>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/add-group/add-group.html"*/,
+            selector: 'page-add-group',template:/*ion-inline-start:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/add-group/add-group.html"*/'<!--\n  Generated template for the AddGroupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Add Group</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit) = "addGroup(f)">\n    <ion-list>\n      <ion-item>\n        <ion-label>Group Name</ion-label>\n        <ion-input \n              type = "groupTitle" \n              ngModel \n              name="groupTitle"\n              required></ion-input>\n      </ion-item>\n      <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Add Group</button>\n  </ion-list>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/altutar/Desktop/hackathon/milleniaires-app/src/pages/add-group/add-group.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], AddGroupPage);
     return AddGroupPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=add-group.js.map

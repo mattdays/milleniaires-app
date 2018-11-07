@@ -47,16 +47,15 @@ export class AddGroupPage {
 
   // }
 
-  fetchList(token: string){
-    const userId = this.authService.getActiveUser().uid;
-
+  addGroup(form: NgForm){
+    var groupRef = firebase.database().ref('users/groups');
+    var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/groups');
+    var newChildRef = myRef.push();
+    var newGroupRef = groupRef.push();
+    newChildRef.set({group: form.value.groupTitle});
+    newGroupRef.set({group: form.value.groupTitle});
   }
-
-  storeList(token: string){
-    const userId = this.authService.getActiveUser().uid;
-  }
-
-
+  
   
 }
 
