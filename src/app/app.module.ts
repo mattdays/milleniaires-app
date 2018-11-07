@@ -18,6 +18,7 @@ import firebase from 'firebase';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthService } from '../services/auth';
 import { HttpModule } from '@angular/http';
+import { ProposeDecisionPage } from '../pages/propose-decision/propose-decision';
 
 export const firebaseConfig={
   apiKey: "AIzaSyAbeLYe8obSBUkCXPqkg38bG2NPOkjA168",
@@ -50,7 +51,8 @@ firebase.initializeApp(firebaseConfig);
     ConnectionsPage,
     AddGroupPage,
     ExamplepagePage,
-    SignupPage
+    SignupPage,
+    ProposeDecisionPage
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ firebase.initializeApp(firebaseConfig);
     ConnectionsPage,
     AddGroupPage,
     ExamplepagePage,
-    SignupPage
+    SignupPage, 
+    ProposeDecisionPage
   ],
   providers: [
     StatusBar,
