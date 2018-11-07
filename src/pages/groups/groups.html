@@ -13,53 +13,36 @@
           </button>
       
         </ion-buttons>
-        <ion-title>Groups</ion-title>
+        <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+<ion-card>
+    <ion-card-header>
+      Groups
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item *ngFor = "let group of myGroups" (click) = "loadPage()">
+        <ion-icon name="contacts" item-start></ion-icon>
+        {{group}}
+      </button>
+  
+    </ion-list>
+  </ion-card>
+  
+<!-- 
 
-    <!-- <ion-card (click)="loadPage()">
-      <ion-card-header>
-        Davidson College Junior Class
-      </ion-card-header>
-    
-      <ion-list>
-        <button ion-item>
-          <ion-icon name="ios-cash-outline" item-start></ion-icon>
-            -2.7%
-        </button>    
-      </ion-list>
-    </ion-card>
-
-    <ion-card>
-        <ion-card-header>
-          Davidson College Investment Club
-        </ion-card-header>
-      
-        <ion-list>
-          <button ion-item>
-            <ion-icon name="ios-cash-outline" item-start></ion-icon>
-            -15.6%
-          </button>    
-        </ion-list>
-      </ion-card>
-
-      <ion-card>
+  <ion-list>
+      <ion-card *ngFor = "let group of myGroups">
           <ion-card-header>
-            Davidson Invest Green
-          </ion-card-header>
-        
-          <ion-list>
-            <button ion-item>
-              <ion-icon name="ios-cash-outline" item-start></ion-icon>
-              +12.6%
-            </button>    
-          </ion-list>
-        </ion-card> -->
-    
+              {{group}}
+            </ion-card-header>
+      </ion-card>
+  </ion-list>
+    -->
     
     
 

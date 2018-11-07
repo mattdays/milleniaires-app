@@ -25,7 +25,7 @@ export class DashboardPage {
 
   groupsPage = GroupsPage;
   connectionsPage = ConnectionsPage;
-   myName: string;
+  myName: string;
   numGroups: number;
   numConnections: number;
 
@@ -51,6 +51,8 @@ export class DashboardPage {
 
     this.getNumberConnections();
     this.getNumGroups();
+
+    
   }
 
   getNumberConnections(): any{
@@ -58,21 +60,22 @@ export class DashboardPage {
     //   this.assignNumberConnections(token).subscribe(
     //     () => console.log('Success'));
     // })
-
     // console.log(this.numConnections);
+
     var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numConnections');
     const preObject = document.getElementById("myNumConnections");
-  //   var test = numRef.on('value', function(snapshot) {
-  //     var myVal = snapshot.val();
-  //     return myVal;
 
-  // });
-  //   return firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numConnections').once('value').then(function(snapshot) {
-  //   });
+    //   var test = numRef.on('value', function(snapshot) {
+    //     var myVal = snapshot.val();
+    //     return myVal;
 
-    myRef.on("value", snap => {
-      preObject.innerText = JSON.stringify(snap.val(), null, 3) + ' Listings';
-    })
+    // });
+    //   return firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numConnections').once('value').then(function(snapshot) {
+    //   });
+
+    preObject.innerText = '5 Listings';
+
+
   }
 
   loadPage(page: any){
@@ -90,25 +93,18 @@ export class DashboardPage {
   } 
 
   getNumGroups(): any{
-    // this.authService.getActiveUser().getIdToken().then((token:string) => {
-    //   this.assignNumberConnections(token).subscribe(
-    //     () => console.log('Success'));
-    // })
-
-    // console.log(this.numConnections);
-    var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numGroups');
+    var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/groups');
     const preObject = document.getElementById("myNumGroups");
-  //   var test = numRef.on('value', function(snapshot) {
-  //     var myVal = snapshot.val();
-  //     return myVal;
-
-  // });
-  //   return firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/numConnections').once('value').then(function(snapshot) {
-  //   });
-
+    var count = 0;
     myRef.on("value", snap => {
-      preObject.innerText = JSON.stringify(snap.val(), null, 3) + ' Connections';
-    })
+      snap.forEach(function(childSnapShot){
+        count = count + 1;
+        preObject.innerHTML = count  + " Listings";
+      })
+    });
+    if (count == 0){
+      preObject.innerHTML = "0 Listings";
+    }
   }
 
 

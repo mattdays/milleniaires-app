@@ -29,6 +29,7 @@ export class GroupsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupsPage');
+    this.myGroups = [];
     this.myGroups = this.getGroups();
   }
 
@@ -43,15 +44,13 @@ export class GroupsPage {
   getGroups(){
     
     var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/groups');
-    var myGroups = [];
+    var groups = [];
     myRef.on("value", snap => {
       snap.forEach(function(childSnapShot){
-        console.log(childSnapShot.val()['group']); //group name
-        console.log(myGroups);
-        myGroups.push(childSnapShot.val()['group']);
+        groups.push(childSnapShot.val()['group']);
       })
     });
-
-   return myGroups;
+    
+   return groups;
   }
 }
