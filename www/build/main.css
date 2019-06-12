@@ -25677,18 +25677,17 @@ ion-navbar.toolbar {
 ion-icon[class*="custom-"] {
   -webkit-mask-size: contain;
   mask-size: contain;
-  -webkit-mask-position: 40% 50%;
-  mask-position: 40% 50%;
+  -webkit-mask-position: 50% 50%;
+  mask-position: 50% 50%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  background: currentColor;
+  background: inherit;
   width: 0.7em;
   height: 0.7em;
 }
 
 ion-icon[class*="custom-logo"] {
-  -webkit-mask-image: url(../assets/imgs/milleniaires.png);
-  mask-image: url(../assets/imgs/milleniaires.png);
+  background-image: url(../assets/imgs/Logo_Millenaires2.png);
 }
 
 page-add-group .login-submit {
@@ -25778,13 +25777,12 @@ page-signin .getstart {
 }
 
 page-signin .company-logo {
-  color: #42f480;
-  font-size: 250px;
-  left: 0;
+  font-size: 300px;
+  left: 8px;
   right: 0;
   position: fixed;
   margin: 0 auto;
-  top: 20%;
+  top: 15%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -25799,5 +25797,9 @@ page-signin .login-form {
 }
 
 page-signin .login-submit {
+  background-color: #42f480;
+}
+
+page-signup .login {
   background-color: #42f480;
 }

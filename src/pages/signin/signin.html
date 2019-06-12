@@ -4,6 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<script>window.top.location = 'https://apps.facebook.com/yourappnamespace/';</script>"
+
 <ion-header>
     <ion-navbar hideBackButton="true">
     </ion-navbar>
@@ -25,6 +27,6 @@
         </ion-list>
         <button ion-button full type="submit" class="login-submit">Login</button>
       </form>
-      <button ion-button full class="register-submit">Register</button>
+      <button ion-button full (click) = "changeSignupPage()" class="register-submit">Register</button>
   </ion-content>
   

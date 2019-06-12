@@ -14,17 +14,17 @@
 
 
 <ion-content padding>
-  <form>
+  <form #f="ngForm" (ngSubmit) = "addGroup(f)">
     <ion-list>
       <ion-item>
-        <ion-label>Title</ion-label>
-        <ion-input type="text"> </ion-input>
+        <ion-label>Group Name</ion-label>
+        <ion-input 
+              type = "groupTitle" 
+              ngModel 
+              name="groupTitle"
+              required></ion-input>
       </ion-item>
-      <ion-item>
-          <ion-label>Connections:</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-      <button ion-button full class="login-submit">Create Group</button>
+      <button class="login" ion-button block type = "submit" [disabled]="!f.valid">Add Group</button>
   </ion-list>
   </form>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProposeDecisionPage } from '../propose-decision/propose-decision';
 
 /**
  * Generated class for the ExamplepagePage page.
@@ -20,6 +21,10 @@ export class ExamplepagePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExamplepagePage');
+  }
+
+  proposeDecision(){
+    this.navCtrl.push(ProposeDecisionPage);
   }
 
 }

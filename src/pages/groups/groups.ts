@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddGroupPage } from '../add-group/add-group';
 import { ExamplepagePage } from '../examplepage/examplepage';
-
+import { AuthService } from '../../services/auth';
+import firebase from 'firebase';
 /**
  * Generated class for the GroupsPage page.
  *
@@ -18,15 +19,18 @@ import { ExamplepagePage } from '../examplepage/examplepage';
 export class GroupsPage {
 
   addGroupPage = AddGroupPage;
-
   examplePage = ExamplepagePage;
+  myGroups = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private authService: AuthService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupsPage');
+    this.myGroups = [];
+    this.myGroups = this.getGroups();
   }
 
   addGroup(){
@@ -35,5 +39,18 @@ export class GroupsPage {
 
   loadPage(){
     this.navCtrl.push(this.examplePage);
+  }
+
+  getGroups(){
+    
+    var myRef = firebase.database().ref('users/' + this.authService.getActiveUser().uid + '/groups');
+    var groups = [];
+    myRef.on("value", snap => {
+      snap.forEach(function(childSnapShot){
+        groups.push(childSnapShot.val()['group']);
+      })
+    });
+    
+   return groups;
   }
 }

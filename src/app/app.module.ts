@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Config } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -13,6 +13,32 @@ import { GroupsPage } from '../pages/groups/groups';
 import { ConnectionsPage } from '../pages/connections/connections';
 import { AddGroupPage } from '../pages/add-group/add-group';
 import { ExamplepagePage } from '../pages/examplepage/examplepage';
+import {Facebook} from "@ionic-native/facebook";
+import firebase from 'firebase';
+import { SignupPage } from '../pages/signup/signup';
+import { AuthService } from '../services/auth';
+import { HttpModule } from '@angular/http';
+import { ProposeDecisionPage } from '../pages/propose-decision/propose-decision';
+
+export const firebaseConfig={
+  apiKey: "AIzaSyAbeLYe8obSBUkCXPqkg38bG2NPOkjA168",
+  authDomain: "ionic2-millenniaires.firebaseapp.com",
+  databaseURL: "https://ionic2-millenniaires.firebaseio.com",
+  projectId: "ionic2-millenniaires",
+  storageBucket: "ionic2-millenniaires.appspot.com",
+  messagingSenderId: "337248717211"
+}
+
+firebase.initializeApp(firebaseConfig);
+
+// firebase.initializeApp({
+//   apiKey: "AIzaSyAbeLYe8obSBUkCXPqkg38bG2NPOkjA168",
+//   authDomain: "ionic2-millenniaires.firebaseapp.com",
+//   databaseURL: "https://ionic2-millenniaires.firebaseio.com",
+//   projectId: "ionic2-millenniaires",
+//   storageBucket: "ionic2-millenniaires.appspot.com",
+//   messagingSenderId: "337248717211"
+// });
 
 @NgModule({
   declarations: [
@@ -24,11 +50,14 @@ import { ExamplepagePage } from '../pages/examplepage/examplepage';
     GroupsPage,
     ConnectionsPage,
     AddGroupPage,
-    ExamplepagePage
+    ExamplepagePage,
+    SignupPage,
+    ProposeDecisionPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,11 +69,15 @@ import { ExamplepagePage } from '../pages/examplepage/examplepage';
     GroupsPage,
     ConnectionsPage,
     AddGroupPage,
-    ExamplepagePage
+    ExamplepagePage,
+    SignupPage, 
+    ProposeDecisionPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
